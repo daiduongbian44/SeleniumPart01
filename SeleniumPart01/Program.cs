@@ -66,14 +66,30 @@ namespace SeleniumPart01
             var element = WaitUntilElementExists(driver, By.CssSelector("#body-section"));
             if (element != null)
             {
-                Console.WriteLine("Element was found");
+                Console.WriteLine("#body-section was found");
+
+                // Tìm kiếm danh sách link trang web
+                var linkElements = driver.FindElements(By.CssSelector("a[href^='http']"));
+                if(linkElements != null)
+                {
+                    // In ra màn hình tổng số link và danh sách các links
+                    Console.WriteLine(string.Format("Total links: {0}", linkElements.Count));
+                    foreach(var link in linkElements)
+                    {
+                        Console.WriteLine(string.Format("{0}", link.GetAttribute("href")));
+                    }
+                } else
+                {
+                    Console.WriteLine("Not found list links");
+                }
             } else
             {
-                Console.WriteLine("Element was not found in current context page.");
+                Console.WriteLine("#body-section not found in current context page.");
             }
 
             // Đóng web đã mở
             driver.Close();
+            Console.WriteLine("Done---------------");
         }
     }
 }
