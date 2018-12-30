@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.Support.UI;
 
@@ -56,8 +58,8 @@ namespace SeleniumPart01
         static void Main(string[] args)
         {
             // Đường dẫn đến geckodriver.exe
-            FirefoxDriverService service = FirefoxDriverService.CreateDefaultService(@"D:\");
-            IWebDriver driver = new FirefoxDriver(service);
+            ChromeDriverService service = ChromeDriverService.CreateDefaultService(@"D:\automationTest");
+            IWebDriver driver = new ChromeDriver (service);
 
             // Đường link để test
             driver.Url = "https://www.phptravels.net/";
@@ -69,6 +71,8 @@ namespace SeleniumPart01
                 Console.WriteLine("#body-section was found");
 
                 // Tìm kiếm danh sách link trang web
+
+                HttpWebRequest re = null;
                 var linkElements = driver.FindElements(By.CssSelector("a[href^='http']"));
                 if(linkElements != null)
                 {
@@ -76,7 +80,18 @@ namespace SeleniumPart01
                     Console.WriteLine(string.Format("Total links: {0}", linkElements.Count));
                     foreach(var link in linkElements)
                     {
-                        Console.WriteLine(string.Format("{0}", link.GetAttribute("href")));
+                        re = (HttpWebRequest)WebRequest.Create(link.GetAttribute("href"));
+                        try
+                        {
+                            var response = (HttpWebResponse)re.GetResponse();
+                            System.Console.WriteLine($"URL: {link.GetAttribute("href")} status is :{response.StatusCode}");
+                        }
+                        catch (WebException e)
+                        {
+                            var errorResponse = (HttpWebResponse)e.Response;
+                            System.Console.WriteLine($"URL: {link.GetAttribute("href")} status is :{errorResponse.StatusCode}");
+                        }
+
                     }
                 } else
                 {
