@@ -1,0 +1,9 @@
+{
+  "name": "read-file-and-folder",
+  "version": "0.0.0",
+  "description": "ReadFileAndFolder",
+  "main": "app.js",
+  "author": {
+    "name": ""
+  }
+}

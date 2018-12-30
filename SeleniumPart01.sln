@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeleniumPart01", "SeleniumP
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultipleThreadingExample", "MultipleThreadingExample\MultipleThreadingExample.csproj", "{F1F20E54-7BF6-4B8D-A7AD-D95926C7893B}"
 EndProject
+Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "ReadFileAndFolder", "ReadFileAndFolder\ReadFileAndFolder.njsproj", "{6CE0C67A-BA20-4C18-B324-E8C193D974B9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{F1F20E54-7BF6-4B8D-A7AD-D95926C7893B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F1F20E54-7BF6-4B8D-A7AD-D95926C7893B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F1F20E54-7BF6-4B8D-A7AD-D95926C7893B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6CE0C67A-BA20-4C18-B324-E8C193D974B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CE0C67A-BA20-4C18-B324-E8C193D974B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CE0C67A-BA20-4C18-B324-E8C193D974B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CE0C67A-BA20-4C18-B324-E8C193D974B9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
