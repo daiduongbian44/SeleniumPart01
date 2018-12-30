@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2041
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeleniumPart01", "SeleniumPart01\SeleniumPart01.csproj", "{56955F13-9B80-47E4-BCCB-1557E5D10345}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultipleThreadingExample", "MultipleThreadingExample\MultipleThreadingExample.csproj", "{F1F20E54-7BF6-4B8D-A7AD-D95926C7893B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,8 +17,15 @@ Global
 		{56955F13-9B80-47E4-BCCB-1557E5D10345}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{56955F13-9B80-47E4-BCCB-1557E5D10345}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{56955F13-9B80-47E4-BCCB-1557E5D10345}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1F20E54-7BF6-4B8D-A7AD-D95926C7893B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1F20E54-7BF6-4B8D-A7AD-D95926C7893B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1F20E54-7BF6-4B8D-A7AD-D95926C7893B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1F20E54-7BF6-4B8D-A7AD-D95926C7893B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {948B09BC-145F-48F5-9EEB-E4E50E37AE2C}
 	EndGlobalSection
 EndGlobal
