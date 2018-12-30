@@ -2,3 +2,5 @@ packages/
 SeleniumPart01/obj/
 SeleniumPart01/bin/
 .vs/
+MultipleThreadingExample/obj/
+MultipleThreadingExample/bin/
