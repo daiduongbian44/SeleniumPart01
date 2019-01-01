@@ -69,18 +69,39 @@ namespace SeleniumPart01
             if (element != null)
             {
                 Console.WriteLine("#body-section was found");
-
-
-
                 //Tìm kiếm search và kết quả trả về 
                 driver.FindElement(By.ClassName("dpd1")).SendKeys("10/01/2019");
                 driver.FindElement(By.ClassName("dpd2")).SendKeys("13/01/2019");
-
                 driver.FindElement(By.ClassName("pfb0")).Click();
 
+                int totalResponse = 0;
+                int page = 1;
+                Boolean isHasMore = true;
+                while (isHasMore)
+                {
+                    var paginations = driver.FindElements(By.XPath("//ul[contains(@class, 'pagination')]/li/a"));
+                    if (paginations != null)
+                    {
+                        foreach (var pagination in paginations)
+                        {
+                            var isNumeric = int.TryParse(pagination.GetAttribute("text"), out int n);
+                            if (isNumeric && n==page)
+                            {
+                                pagination.Click();
+                                totalResponse += driver.FindElements(By.ClassName("price_tab")).Count;
+                                page++;
+                                isHasMore = true;
+                                break;
+                            }
+                            isHasMore = false;
+                        }
+                        continue;
+                    }
+                }
+                Console.WriteLine(totalResponse);
 
-                var result = driver.FindElements(By.ClassName("price_tab"));
-                Console.WriteLine(result.Count);
+                //var result = driver.FindElements(By.ClassName("price_tab"));
+                //Console.WriteLine(result.Count);
 
                 // Tìm kiếm danh sách link trang web
 
