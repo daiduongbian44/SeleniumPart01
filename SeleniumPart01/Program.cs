@@ -70,36 +70,49 @@ namespace SeleniumPart01
             {
                 Console.WriteLine("#body-section was found");
 
+
+
+                //Tìm kiếm search và kết quả trả về 
+                driver.FindElement(By.ClassName("dpd1")).SendKeys("10/01/2019");
+                driver.FindElement(By.ClassName("dpd2")).SendKeys("13/01/2019");
+
+                driver.FindElement(By.ClassName("pfb0")).Click();
+
+
+                var result = driver.FindElements(By.ClassName("price_tab"));
+                Console.WriteLine(result.Count);
+
                 // Tìm kiếm danh sách link trang web
 
-                HttpWebRequest re = null;
-                var linkElements = driver.FindElements(By.CssSelector("a[href^='http']"));
-                if(linkElements != null)
-                {
-                    // In ra màn hình tổng số link và danh sách các links
-                    Console.WriteLine(string.Format("Total links: {0}", linkElements.Count));
-                    foreach(var link in linkElements)
-                    {
-                        re = (HttpWebRequest)WebRequest.Create(link.GetAttribute("href"));
-                        try
-                        {
-                            var response = (HttpWebResponse)re.GetResponse();
-                            System.Console.WriteLine($"URL: {link.GetAttribute("href")} status is :{response.StatusCode}");
-                        }
-                        catch (WebException e)
-                        {
-                            var errorResponse = (HttpWebResponse)e.Response;
-                            System.Console.WriteLine($"URL: {link.GetAttribute("href")} status is :{errorResponse.StatusCode}");
-                        }
+                //    HttpWebRequest re = null;
+                //    var linkElements = driver.FindElements(By.CssSelector("a[href^='http']"));
+                //    if(linkElements != null)
+                //    {
+                //        // In ra màn hình tổng số link và danh sách các links
+                //        Console.WriteLine(string.Format("Total links: {0}", linkElements.Count));
+                //        foreach(var link in linkElements)
+                //        {
+                //            re = (HttpWebRequest)WebRequest.Create(link.GetAttribute("href"));
+                //            try
+                //            {
+                //                var response = (HttpWebResponse)re.GetResponse();
+                //                System.Console.WriteLine($"URL: {link.GetAttribute("href")} status is :{response.StatusCode}");
+                //            }
+                //            catch (WebException e)
+                //            {
+                //                var errorResponse = (HttpWebResponse)e.Response;
+                //                System.Console.WriteLine($"URL: {link.GetAttribute("href")} status is :{errorResponse.StatusCode}");
+                //            }
 
-                    }
-                } else
-                {
-                    Console.WriteLine("Not found list links");
-                }
-            } else
-            {
-                Console.WriteLine("#body-section not found in current context page.");
+                //        }
+                //    } else
+                //    {
+                //        Console.WriteLine("Not found list links");
+                //    }
+                //} else
+                //{
+                //    Console.WriteLine("#body-section not found in current context page.");
+                //}
             }
 
             // Đóng web đã mở
